@@ -1,0 +1,58 @@
+{
+  "name": "timebudget-guard",
+  "version": "0.1.0",
+  "description": "Stop an AI agent from silently grinding: a wall-clock budget plus three progress-window rules that force a report before the hour is gone. Ships as a native DeepSeek Harness plugin, a portable hook for Claude Code / Codex dialect hosts, and a plain-text rule pack.",
+  "type": "module",
+  "license": "MIT",
+  "author": "tkkpku",
+  "keywords": [
+    "agent",
+    "hooks",
+    "claude-code",
+    "codex",
+    "deepseek-harness",
+    "dsh-plugin",
+    "timeout",
+    "guardrail",
+    "human-in-the-loop"
+  ],
+  "main": "lib/index.mjs",
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./core": "./lib/core.mjs",
+    "./messages": "./lib/messages.mjs",
+    "./hook": "./hooks/hook.mjs",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "timebudget-hook": "hooks/hook.mjs"
+  },
+  "files": [
+    "lib",
+    "hooks",
+    "rules",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.2-rc.3"
+    }
+  },
+  "scripts": {
+    "test": "node test/core.test.mjs && node test/integration.test.mjs && node test/messages.test.mjs",
+    "test:hook": "node test/hook.test.mjs",
+    "scenarios": "node test/scenarios.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkkpku/timebudget-guard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tkkpku/timebudget-guard/issues"
+  },
+  "homepage": "https://github.com/tkkpku/timebudget-guard#readme"
+}
